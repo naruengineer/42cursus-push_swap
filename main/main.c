@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:24:57 by nando             #+#    #+#             */
-/*   Updated: 2025/03/20 14:32:05 by nando            ###   ########.fr       */
+/*   Updated: 2025/03/20 15:05:10 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int checks(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
 		ft_printf("Error\n");
 		return (ERROR);
 	}
-	ft_printf("\nParsed %d numbers\n", count);
+	ft_printf("\nInput %d numbers\n", count);
 	i = 0;
 	while (i < count)
 	{
@@ -40,23 +40,25 @@ static int checks(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
 
 static void sorts(t_stack *stack_a, t_stack *stack_b, int count)
 {
-	ft_printf("\n**********before*********\n");
+	ft_printf("\n*********Before*********\n");
 	print_stack(stack_a, "a");
 	print_stack(stack_b, "b");
 	if(is_sorted(stack_a))
 	{
-		ft_printf("\nalready sorted.\n\n");
+		ft_printf("\nAlready sorted.\n\n");
 		return;
 	}
-	ft_printf("\nsorting...\n\n");
+	ft_printf("\n*************************\n");
+	ft_printf("\nSorting...\n");
 	if(count <= 5)
 		few_args_sort(stack_a, stack_b, count);
 	else
 		big_args_sort(stack_a, stack_b);
-	ft_printf("\nfinish!!!\n");
-	ft_printf("\n**********after**********\n");
+	ft_printf("Finish!!!\n");
+	ft_printf("\n**********After**********\n");
 	print_stack(stack_a,"a");
 	print_stack(stack_b,"b");
+	ft_printf("\n*************************\n");
 }
 
 int main(int argc, char **argv)
@@ -80,7 +82,7 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	free(numbers);
-	ft_printf("\n**free_numbers**\n");
+	//ft_printf("\n**free_numbers**\n");
 	sorts(stack_a, stack_b, count);
 	free_stack(stack_a);
     free_stack(stack_b);

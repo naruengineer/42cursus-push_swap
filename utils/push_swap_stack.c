@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:07:55 by nando             #+#    #+#             */
-/*   Updated: 2025/03/20 14:07:01 by nando            ###   ########.fr       */
+/*   Updated: 2025/03/20 15:01:30 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int pop(t_stack *stack)
 
 void free_stack(t_stack *stack)
 {
-	ft_printf("**free_stack**\n");
+	//ft_printf("**free_stack**\n");
 	if(!stack)
 		return ;
 	while (stack->size > 0)
