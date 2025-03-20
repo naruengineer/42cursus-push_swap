@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:46:37 by nando             #+#    #+#             */
-/*   Updated: 2025/03/20 14:34:51 by nando            ###   ########.fr       */
+/*   Updated: 2025/03/20 15:25:11 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ static int	parse_tokens(char **tokens, int token_count, int **nums)
 	}
 	free_tokens(tokens);
 	*nums = input_numbers;
-	return (0);
+	return (count);
 }
 
-static int split_and_parse_string(char *input, int **nums)
+static int split_and_parse_single_arg(char *input, int **nums)
 {
 	char **tokens;
 	int token_count;
@@ -88,8 +88,6 @@ static int split_and_parse_string(char *input, int **nums)
 	return (parse_tokens(tokens, token_count, nums));
 }
 
-
-
 int parse_input(int argc, char **argv, int **numbers)
 {
 	int *nums;
@@ -97,7 +95,7 @@ int parse_input(int argc, char **argv, int **numbers)
 	int count;
 	
 	if(argc == 2)
-		return (split_and_parse_string(argv[1], numbers));
+		return (split_and_parse_single_arg(argv[1], numbers));
 	i = 1;
 	count = 0;
 	nums = malloc(sizeof(int) * (argc - 1));
