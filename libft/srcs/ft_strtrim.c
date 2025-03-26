@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 13:24:22 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 14:56:30 by nando            ###   ########.fr       */
+/*   Created: 2024/12/05 14:08:33 by nando             #+#    #+#             */
+/*   Updated: 2024/12/11 20:06:39 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	s1_len = ft_strlen(s1);
 	while (s1_len > 0 && ft_strchr(set, s1[s1_len - 1]))
 		s1_len--;
-	trimed_s1 = ft_calloc(s1_len + 1, sizeof(char));
+	trimed_s1 = malloc(s1_len + 1 * sizeof(char));
 	if (!trimed_s1)
 		return (NULL);
 	ft_strlcpy(trimed_s1, s1, s1_len + 1);

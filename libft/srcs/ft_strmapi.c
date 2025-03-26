@@ -5,21 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 13:25:46 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 14:57:24 by nando            ###   ########.fr       */
+/*   Created: 2024/12/05 17:41:03 by nando             #+#    #+#             */
+/*   Updated: 2024/12/11 16:43:06 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-//static char	alternate_case(unsigned int index, char c)
-//{
-//	if (index % 2 == 0 && c >= 'A' && c <= 'Z')
-//		return (c + 32);
-//	else if (index % 2 != 0 && c >= 'a' && c <= 'z')
-//		return (c - 32);
-//	return (c);
-//}
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -31,7 +22,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	i = 0;
 	str_len = ft_strlen(s);
-	new_string = malloc((str_len + 1) * sizeof(char));
+	new_string = (char *)malloc((str_len + 1) * sizeof(char));
+	if (!new_string)
+		return (NULL);
 	while (i < str_len)
 	{
 		new_string[i] = f(i, s[i]);

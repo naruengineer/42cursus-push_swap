@@ -1,14 +1,26 @@
-#ifndef LIBFT_H
-#define LIBFT_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/26 16:23:34 by nando             #+#    #+#             */
+/*   Updated: 2025/03/26 16:23:36 by nando            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#ifndef LIBFT_H
+# define LIBFT_H
+
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
-int	ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
-int 	ft_isspace(char c);
+int		ft_isspace(char c);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -40,6 +52,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
 
 #endif

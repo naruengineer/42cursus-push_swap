@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 23:31:25 by nando             #+#    #+#             */
-/*   Updated: 2025/03/20 12:28:57 by nando            ###   ########.fr       */
+/*   Updated: 2025/03/26 16:20:29 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	two_args(t_stack *stack_a)
 {
-	if(stack_a->top->value > stack_a->top->next->value)
+	if (stack_a->top->value > stack_a->top->next->value)
 		sa(stack_a);
 }
 
@@ -50,7 +50,7 @@ void	four_args(t_stack *stack_a, t_stack *stack_b)
 {
 	push_smallest_to_b(stack_a, stack_b);
 	three_args(stack_a);
-	pa(stack_a ,stack_b);
+	pa(stack_a, stack_b);
 }
 
 void	five_args(t_stack *stack_a, t_stack *stack_b)
@@ -62,11 +62,11 @@ void	five_args(t_stack *stack_a, t_stack *stack_b)
 	pa(stack_a, stack_b);
 }
 
-void few_args_sort(t_stack *stack_a, t_stack *stack_b, const int count)
+void	few_args_sort(t_stack *stack_a, t_stack *stack_b, const int count)
 {
 	if (count == 2)
 		two_args(stack_a);
-	else if(count == 3)
+	else if (count == 3)
 		three_args(stack_a);
 	else if (count == 4)
 		four_args(stack_a, stack_b);

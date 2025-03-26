@@ -5,32 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 15:14:52 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 15:15:31 by nando            ###   ########.fr       */
+/*   Created: 2024/12/01 16:55:43 by nando             #+#    #+#             */
+/*   Updated: 2024/12/13 13:51:39 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  ft_strlen (const char *s) 
+char	*ft_strrchr(const char *string, int c)
 {
-	size_t len;
-	len = 0;
-	
-	while (s[len] != '\0')
-		len++;
-	return len;
-}
+	char	*result;
+	int		i;
 
-char *ft_strrchr (const char *s, int c)
-{
-	size_t len = ft_strlen(s);
-	while(len != 0){
-		if(s[len] == c)
-			return (char *)&s[len];
-	len--;
+	i = 0;
+	result = NULL;
+	while (string[i] != '\0')
+	{
+		if ((char)string[i] == (char)c)
+			result = (char *)&string[i];
+		i++;
 	}
-	if(c == '\0')
-		return (char *)&s[len];
-	return NULL;
+	if ((char)c == '\0')
+		return ((char *)&string[i]);
+	return (result);
 }

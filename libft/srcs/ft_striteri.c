@@ -5,23 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 13:26:15 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 14:57:47 by nando            ###   ########.fr       */
+/*   Created: 2024/12/09 11:47:24 by nando             #+#    #+#             */
+/*   Updated: 2024/12/11 13:58:16 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-//static void	alternate_case_in_place(unsigned int index, char *c)
-//{
-//	if (c != NULL)
-//	{
-//		if (index % 2 == 0 && *c >= 'A' && *c <= 'Z')
-//			*c += 32;
-//		else if (index % 2 != 0 && *c >= 'a' && *c <= 'z')
-//			*c -= 32;
-//	}
-//}
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {

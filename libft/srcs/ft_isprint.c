@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 20:53:52 by nando             #+#    #+#             */
-/*   Updated: 2024/12/09 20:53:53 by nando            ###   ########.fr       */
+/*   Created: 2024/12/01 15:29:06 by nando             #+#    #+#             */
+/*   Updated: 2024/12/10 18:16:41 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c){
-	if(32 <= c && c <= 126)
-		return 1;	
-	return 0;
+int	ft_isprint(int c)
+{
+	if (32 <= c && c <= 126)
+		return (1);
+	return (0);
 }

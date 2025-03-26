@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 13:21:24 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 14:51:36 by nando            ###   ########.fr       */
+/*   Created: 2024/12/05 12:54:46 by nando             #+#    #+#             */
+/*   Updated: 2024/12/11 19:32:19 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str_cpy;
 
 	i = 0;
-	if(!s)
+	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
-	if (s_len <= start)
-		return ((char *)ft_calloc(1, sizeof(char)));
+	if (s_len < start)
+		return (ft_calloc(1, sizeof(char)));
 	subs_len = s_len - start;
 	if (subs_len > len)
 		subs_len = len;

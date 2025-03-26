@@ -5,28 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 10:25:43 by nando             #+#    #+#             */
-/*   Updated: 2024/12/09 20:54:57 by nando            ###   ########.fr       */
+/*   Created: 2024/12/02 16:43:06 by nando             #+#    #+#             */
+/*   Updated: 2024/12/10 17:17:03 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *dest, const void *src, size_t count)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t i;
-	unsigned char *cast_dest;
-	unsigned char *cast_src;
+	unsigned char	*cast_src;
+	unsigned char	*cast_dest;
+	size_t			i;
 
 	i = 0;
-	cast_dest = (unsigned char *)dest;
 	cast_src = (unsigned char *)src;
-	if(count == 0)
-		return NULL;
-	while (i < count)
+	cast_dest = (unsigned char *)dest;
+	while (i < n)
 	{
 		cast_dest[i] = cast_src[i];
 		i++;
 	}
-	return (void *)cast_dest;
+	return (dest);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 13:25:24 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 14:56:56 by nando            ###   ########.fr       */
+/*   Created: 2024/12/05 16:51:59 by nando             #+#    #+#             */
+/*   Updated: 2024/12/11 20:06:55 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ static int	num_of_digits(int n)
 	if (n <= 0)
 	{
 		digits++;
-		if (n == -2147483648)
-			return (digits + 10);
 		n = -n;
 	}
 	while (n > 0)
 	{
-		n = n / 10;
 		digits++;
+		n = n / 10;
 	}
 	return (digits);
 }
@@ -48,9 +46,9 @@ char	*ft_itoa(int n)
 	char	*nbr;
 	int		digits;
 
-	digits = num_of_digits(n);
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
+	digits = num_of_digits(n);
 	nbr = (char *)malloc((digits + 1) * sizeof(char));
 	if (!nbr)
 		return (NULL);

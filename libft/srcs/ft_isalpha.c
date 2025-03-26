@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 20:53:36 by nando             #+#    #+#             */
-/*   Updated: 2024/12/09 20:53:37 by nando            ###   ########.fr       */
+/*   Created: 2024/12/01 14:50:28 by nando             #+#    #+#             */
+/*   Updated: 2024/12/10 18:16:09 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalpha(int c){
-	if(('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') )
-		return 1;
-	return 0;
+int	ft_isalpha(int c)
+{
+	if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'))
+		return (1);
+	return (0);
 }

@@ -5,27 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 10:19:51 by nando             #+#    #+#             */
-/*   Updated: 2024/12/09 20:54:38 by nando            ###   ########.fr       */
+/*   Created: 2024/12/02 16:49:11 by nando             #+#    #+#             */
+/*   Updated: 2024/12/10 20:22:02 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *buf1, const void *buf2, size_t count)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t i;
-	unsigned char *cast_buf1;
-	unsigned char *cast_buf2;
+	unsigned char	*cast_s1;
+	unsigned char	*cast_s2;
+	size_t			i;
 
 	i = 0;
-	cast_buf1 = (unsigned char *)buf1;
-	cast_buf2 = (unsigned char *)buf2;
-	while(i < count)
+	cast_s1 = (unsigned char *)s1;
+	cast_s2 = (unsigned char *)s2;
+	while (i < n)
 	{
-		if(cast_buf1[i] != cast_buf2[i])
-			return (int)(cast_buf1[i] - cast_buf2[i]);
+		if (cast_s1[i] != cast_s2[i])
+			return (cast_s1[i] - cast_s2[i]);
 		i++;
 	}
-	return 0;
+	return (0);
 }
