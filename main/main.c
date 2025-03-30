@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:24:57 by nando             #+#    #+#             */
-/*   Updated: 2025/03/26 17:12:30 by nando            ###   ########.fr       */
+/*   Updated: 2025/03/30 14:50:43 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static int	checks(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
 
 	if (count == ERROR)
 	{
-		ft_printf("Please check args and try again.\n");
+		ft_putstr_fd("Error\n", 2);
 		return (ERROR);
 	}
 	if (!stack_a || !stack_b)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (ERROR);
 	}
 	ft_printf("\nInput %d numbers\n", count);

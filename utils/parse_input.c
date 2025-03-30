@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:46:37 by nando             #+#    #+#             */
-/*   Updated: 2025/03/26 16:20:49 by nando            ###   ########.fr       */
+/*   Updated: 2025/03/30 14:53:48 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,9 @@ static int	check_and_store(const char *nptr, int *nums, int *count)
 	int	num;
 
 	if (push_swap_atoi(nptr, &num) < 0)
-	{
-		ft_printf("Only int types are accepted.\n");
 		return (ERROR);
-	}
 	if (check_duplicate(num, nums, *count) < 0)
-	{
-		ft_printf("There are duplicates in the input.\n");
 		return (ERROR);
-	}
 	nums[*count] = num;
 	(*count)++;
 	return (0);
