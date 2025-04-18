@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:55:38 by nando             #+#    #+#             */
-/*   Updated: 2025/03/26 17:03:37 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/18 16:42:15 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-//ノード構造体（双方向循環リスト）
 typedef struct s_node
 {
 	int				value;
@@ -32,7 +31,6 @@ typedef struct s_node
 	struct s_node	*prev;
 }					t_node;
 
-//スタック構造体
 typedef struct s_stack
 {
 	t_node			*top;
@@ -43,8 +41,12 @@ t_stack				*init_stack(void);
 t_node				*create_node(int value);
 void				push(t_stack *stack, int value);
 int					pop(t_stack *stack);
+void				free_tokens(char **tokens);
 void				free_stack(t_stack *stack);
-void				print_stack(t_stack *stack, char *name);
+void				num_of_args_error(t_stack *stack_a, t_stack *stack_b,
+						int *numbers);
+void				contents_error(t_stack *stack_a, t_stack *stack_b,
+						int *numbers);
 void				sa(t_stack *a);
 void				sb(t_stack *b);
 void				ss(t_stack *a, t_stack *b);
@@ -56,7 +58,6 @@ void				rr(t_stack *a, t_stack *b);
 void				rra(t_stack *a);
 void				rrb(t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
-void				free_tokens(char **tokens);
 int					push_swap_atoi(const char *nptr, int *num);
 int					parse_input(int argc, char **argv, int **numbers);
 void				search_smallest(t_stack *stack_a, int *smallest, int *posi);

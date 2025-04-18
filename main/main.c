@@ -6,32 +6,35 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:24:57 by nando             #+#    #+#             */
-/*   Updated: 2025/03/30 14:50:43 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/18 17:05:39 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	checks(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
+static int	check_count(t_stack *a, t_stack *b, int count, int *nums)
+{
+	if (count == ERROR)
+	{
+		contents_error(a, b, nums);
+		return (ERROR);
+	}
+	if (count == 1)
+	{
+		num_of_args_error(a, b, nums);
+		return (ERROR);
+	}
+	return (0);
+}
+
+static int	push_nums_to_stack_a(t_stack *stack_a, int count, int *nums)
 {
 	int	i;
 
-	if (count == ERROR)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (ERROR);
-	}
-	if (!stack_a || !stack_b)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (ERROR);
-	}
-	ft_printf("\nInput %d numbers\n", count);
 	i = 0;
 	while (i < count)
 	{
-		push(stack_a, numbers[i]);
-		ft_printf("push[%d] : %d\n", i, numbers[i]);
+		push(stack_a, nums[i]);
 		i++;
 	}
 	return (0);
@@ -39,30 +42,17 @@ static int	checks(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
 
 static void	sorts(t_stack *stack_a, t_stack *stack_b, int count)
 {
-	ft_printf("\n*********Before*********\n");
-	print_stack(stack_a, "a");
-	print_stack(stack_b, "b");
 	if (is_sorted(stack_a))
-	{
-		ft_printf("\nAlready sorted.\n\n");
 		return ;
-	}
-	ft_printf("\n*************************\n");
-	ft_printf("\nSorting...\n");
 	if (count <= 5)
 		few_args_sort(stack_a, stack_b, count);
 	else
 		big_args_sort(stack_a, stack_b);
-	ft_printf("Finish!!!\n");
-	ft_printf("\n**********After**********\n");
-	print_stack(stack_a, "a");
-	print_stack(stack_b, "b");
-	ft_printf("\n*************************\n");
 }
 
 int	main(int argc, char **argv)
 {
-	int		*numbers;
+	int		*nums;
 	int		count;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -71,16 +61,13 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = init_stack();
 	stack_b = init_stack();
-	count = parse_input(argc, argv, &numbers);
-	if (count == 1)
+	if (!stack_a || !stack_b)
 		return (0);
-	if (checks(stack_a, stack_b, count, numbers) == ERROR)
-	{
-		free_stack(stack_a);
-		free_stack(stack_b);
+	count = parse_input(argc, argv, &nums);
+	if (check_count(stack_a, stack_b, count, nums) == ERROR)
 		return (0);
-	}
-	free(numbers);
+	push_nums_to_stack_a(stack_a, count, nums);
+	free(nums);
 	sorts(stack_a, stack_b, count);
 	free_stack(stack_a);
 	free_stack(stack_b);

@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:46:37 by nando             #+#    #+#             */
-/*   Updated: 2025/03/30 14:53:48 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/18 16:06:25 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static int	check_and_store(const char *nptr, int *nums, int *count)
 {
 	int	num;
 
-	if (push_swap_atoi(nptr, &num) < 0)
+	if (push_swap_atoi(nptr, &num) == ERROR)
 		return (ERROR);
-	if (check_duplicate(num, nums, *count) < 0)
+	if (check_duplicate(num, nums, *count) == ERROR)
 		return (ERROR);
 	nums[*count] = num;
 	(*count)++;
@@ -55,7 +55,7 @@ static int	parse_tokens(char **tokens, int token_count, int **nums)
 	i = 0;
 	while (i < token_count)
 	{
-		if (check_and_store(tokens[i], input_numbers, &count) < 0)
+		if (check_and_store(tokens[i], input_numbers, &count) == ERROR)
 		{
 			free_tokens(tokens);
 			free(input_numbers);
@@ -97,7 +97,7 @@ int	parse_input(int argc, char **argv, int **numbers)
 		return (ERROR);
 	while (i < argc)
 	{
-		if (check_and_store(argv[i], nums, &count) < 0)
+		if (check_and_store(argv[i], nums, &count) == ERROR)
 		{
 			free(nums);
 			return (ERROR);

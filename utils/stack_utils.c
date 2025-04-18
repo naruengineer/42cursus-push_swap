@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_stack.c                                  :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:07:55 by nando             #+#    #+#             */
-/*   Updated: 2025/03/26 16:47:41 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/18 16:36:44 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,4 @@ int	pop(t_stack *stack)
 	free(node);
 	stack->size--;
 	return (value);
-}
-
-void	free_stack(t_stack *stack)
-{
-	if (!stack)
-		return ;
-	while (stack->size > 0)
-		pop(stack);
-	free(stack);
 }
