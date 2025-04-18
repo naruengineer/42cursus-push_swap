@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:34:28 by nando             #+#    #+#             */
-/*   Updated: 2025/04/18 16:37:38 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/18 18:26:35 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	free_stack(t_stack *stack)
 
 void	num_of_args_error(t_stack *stack_a, t_stack *stack_b, int *numbers)
 {
-	free(numbers);
+	if(numbers)
+		free(numbers);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
@@ -46,7 +47,8 @@ void	num_of_args_error(t_stack *stack_a, t_stack *stack_b, int *numbers)
 void	contents_error(t_stack *stack_a, t_stack *stack_b, int *numbers)
 {
 	ft_putstr_fd("Error\n", 2);
-	free(numbers);
+	if(numbers)
+		free(numbers);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

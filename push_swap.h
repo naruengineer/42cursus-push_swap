@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:55:38 by nando             #+#    #+#             */
-/*   Updated: 2025/04/18 16:42:15 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/18 18:05:54 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ void				two_args(t_stack *stack_a);
 void				three_args(t_stack *stack_a);
 void				four_args(t_stack *stack_a, t_stack *stack_b);
 void				five_args(t_stack *stack_a, t_stack *stack_b);
-int					get_min(t_stack *stack);
-int					get_max(t_stack *stack);
 int					get_max_bit_length(t_stack *stack);
 void				few_args_sort(t_stack *stack_a, t_stack *stack_b,
 						int count);

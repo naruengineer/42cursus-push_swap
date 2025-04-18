@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 20:23:06 by nando             #+#    #+#             */
-/*   Updated: 2025/03/26 16:20:35 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/18 18:06:38 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	search_smallest(t_stack *stack_a, int *smallest, int *posi)
 
 	i = 0;
 	*smallest = stack_a->top->value;
-	*posi = 0;
 	tmp = stack_a->top;
 	while (i < stack_a->size)
 	{
@@ -71,4 +70,23 @@ int	is_sorted(t_stack *stack)
 		i++;
 	}
 	return (1);
+}
+
+int	get_max_bit_length(t_stack *stack)
+{
+	int		max;
+	int		max_bit_len;
+	long	value;
+
+	max_bit_len = 0;
+	max = (stack->size - 1);
+	value = max;
+	if (value == 0)
+		return (1);
+	while (value)
+	{
+		max_bit_len++;
+		value = value >> 1;
+	}
+	return (max_bit_len);
 }

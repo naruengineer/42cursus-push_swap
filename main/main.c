@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:24:57 by nando             #+#    #+#             */
-/*   Updated: 2025/04/18 17:05:39 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/18 18:19:20 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	main(int argc, char **argv)
 	int		count;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-
+	
+	nums = NULL;
 	if (argc < 2)
 		return (0);
 	stack_a = init_stack();

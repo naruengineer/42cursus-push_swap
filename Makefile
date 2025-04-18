@@ -6,7 +6,7 @@
 #    By: nando <nando@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 21:17:18 by nando             #+#    #+#              #
-#    Updated: 2025/04/18 16:42:43 by nando            ###   ########.fr        #
+#    Updated: 2025/04/18 18:06:49 by nando            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRCS =  operations/push_swap_pushes.c \
 		sorts/few_args.c \
 		sorts/big_args.c \
 		sorts/sort_utils.c \
-		sorts/get.c \
 		utils/free_and_error.c \
 		utils/parse_input.c \
 		utils/push_swap_atoi.c \

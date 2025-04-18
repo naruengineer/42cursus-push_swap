@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:06:32 by nando             #+#    #+#             */
-/*   Updated: 2025/03/26 16:20:24 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/18 18:06:22 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	sort_int_array(int *arr, int n)
 	}
 }
 
-static void	replace_values(t_stack *stack, int *arr, int s_size, t_node *node)
+static void	assign_ranks(t_stack *stack, int *arr, int s_size, t_node *node)
 {
 	int	i;
 	int	rank;
@@ -61,28 +61,28 @@ static void	replace_values(t_stack *stack, int *arr, int s_size, t_node *node)
 	}
 }
 
-static void	compress_stack(t_stack *stack)
+static void	compress(t_stack *stack)
 {
 	int		s_size;
-	int		*arr;
+	int		*array;
 	t_node	*node;
 	int		i;
 
 	s_size = stack->size;
-	arr = malloc(sizeof(int) * s_size);
-	if (!arr)
+	array = malloc(sizeof(int) * s_size);
+	if (!array)
 		return ;
 	node = stack->top;
 	i = 0;
 	while (i < s_size)
 	{
-		arr[i] = node->value;
+		array[i] = node->value;
 		node = node->next;
 		i++;
 	}
-	sort_int_array(arr, s_size);
-	replace_values(stack, arr, s_size, node);
-	free(arr);
+	sort_int_array(array, s_size);
+	assign_ranks(stack, array, s_size, node);
+	free(array);
 }
 
 static void	radix_sort(t_stack *stack_a, t_stack *stack_b, int max_bit_len)
@@ -116,7 +116,7 @@ void	big_args_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	max_bit_len;
 
-	compress_stack(stack_a);
+	compress(stack_a);
 	max_bit_len = get_max_bit_length(stack_a);
 	radix_sort(stack_a, stack_b, max_bit_len);
 }
