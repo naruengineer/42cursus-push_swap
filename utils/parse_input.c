@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:46:37 by nando             #+#    #+#             */
-/*   Updated: 2025/04/18 18:18:41 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/20 15:49:10 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,15 @@ static int	check_duplicate(int num, int *nums, int count)
 	return (0);
 }
 
-static int	check_and_store(const char *nptr, int *nums, int *count)
+static int	check_and_store(const char *nptr, int *nums, int count)
 {
 	int	num;
 
 	if (push_swap_atoi(nptr, &num) == ERROR)
 		return (ERROR);
-	if (check_duplicate(num, nums, *count) == ERROR)
+	if (check_duplicate(num, nums, count) == ERROR)
 		return (ERROR);
-	nums[*count] = num;
-	(*count)++;
+	nums[count] = num;
 	return (0);
 }
 
@@ -55,13 +54,12 @@ static int	parse_tokens(char **tokens, int token_count, int **nums)
 	i = 0;
 	while (i < token_count)
 	{
-		if (check_and_store(tokens[i], input_numbers, &count) == ERROR)
+		if (check_and_store(tokens[i++], input_numbers, count++) == ERROR)
 		{
 			free_tokens(tokens);
 			free(input_numbers);
 			return (ERROR);
 		}
-		i++;
 	}
 	free_tokens(tokens);
 	*nums = input_numbers;
@@ -79,6 +77,11 @@ static int	split_and_parse_single_arg(char *input, int **nums)
 		return (ERROR);
 	while (tokens[token_count])
 		token_count++;
+	if (token_count == 0)
+	{
+		free_tokens(tokens);
+		return (ERROR);
+	}
 	return (parse_tokens(tokens, token_count, nums));
 }
 
@@ -97,12 +100,11 @@ int	parse_input(int argc, char **argv, int **numbers)
 		return (ERROR);
 	while (i < argc)
 	{
-		if (check_and_store(argv[i], nums, &count) == ERROR)
+		if (check_and_store(argv[i++], nums, count++) == ERROR)
 		{
 			free(nums);
 			return (ERROR);
 		}
-		i++;
 	}
 	*numbers = nums;
 	return (count);

@@ -6,25 +6,26 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 20:23:06 by nando             #+#    #+#             */
-/*   Updated: 2025/04/18 18:06:38 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/20 16:18:05 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	search_smallest(t_stack *stack_a, int *smallest, int *posi)
+static void	search_smallest(t_stack *stack_a, int *posi)
 {
 	int		i;
+	int		smallest;
 	t_node	*tmp;
 
 	i = 0;
-	*smallest = stack_a->top->value;
+	smallest = stack_a->top->value;
 	tmp = stack_a->top;
 	while (i < stack_a->size)
 	{
-		if (tmp->value < *smallest)
+		if (tmp->value < smallest)
 		{
-			*smallest = tmp->value;
+			smallest = tmp->value;
 			*posi = i;
 		}
 		tmp = tmp->next;
@@ -34,11 +35,10 @@ void	search_smallest(t_stack *stack_a, int *smallest, int *posi)
 
 void	push_smallest_to_b(t_stack *stack_a, t_stack *stack_b)
 {
-	int	smallest;
 	int	posi;
 
 	posi = 0;
-	search_smallest(stack_a, &smallest, &posi);
+	search_smallest(stack_a, &posi);
 	if (posi <= stack_a->size / 2)
 	{
 		while (posi-- > 0)

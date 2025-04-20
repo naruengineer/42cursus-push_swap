@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:32:18 by nando             #+#    #+#             */
-/*   Updated: 2025/03/26 16:50:34 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/20 16:28:56 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ int	push_swap_atoi(const char *nptr, int *num)
 	if (!nptr || !nptr[0])
 		return (ERROR);
 	i = skip_spaces(nptr);
-	if (is_valid_start_char(nptr[i]) < 0)
+	if (is_valid_start_char(nptr[i]) == ERROR)
 		return (ERROR);
-	if (parse_sign(nptr, &i, &sign) < 0)
+	if (parse_sign(nptr, &i, &sign) == ERROR)
 		return (ERROR);
-	if (parse_number(nptr, &i, &result, sign) < 0)
+	if (parse_number(nptr, &i, &result, sign) == ERROR)
 		return (ERROR);
 	if (nptr[i] != '\0')
 		return (ERROR);

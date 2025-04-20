@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:55:38 by nando             #+#    #+#             */
-/*   Updated: 2025/04/18 18:05:54 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/20 16:00:00 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,6 @@ t_stack				*init_stack(void);
 t_node				*create_node(int value);
 void				push(t_stack *stack, int value);
 int					pop(t_stack *stack);
-void				free_tokens(char **tokens);
-void				free_stack(t_stack *stack);
-void				num_of_args_error(t_stack *stack_a, t_stack *stack_b,
-						int *numbers);
-void				contents_error(t_stack *stack_a, t_stack *stack_b,
-						int *numbers);
 void				sa(t_stack *a);
 void				sb(t_stack *b);
 void				ss(t_stack *a, t_stack *b);
@@ -58,18 +52,19 @@ void				rr(t_stack *a, t_stack *b);
 void				rra(t_stack *a);
 void				rrb(t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
+void				free_tokens(char **tokens);
+void				free_stack(t_stack *stack);
+void				num_of_args_error(t_stack *stack_a, t_stack *stack_b,
+						int *numbers);
+void				contents_error(t_stack *stack_a, t_stack *stack_b,
+						int *numbers);
 int					push_swap_atoi(const char *nptr, int *num);
 int					parse_input(int argc, char **argv, int **numbers);
-void				search_smallest(t_stack *stack_a, int *smallest, int *posi);
+int					is_sorted(t_stack *stack);
 void				push_smallest_to_b(t_stack *stack_a, t_stack *stack_b);
-void				two_args(t_stack *stack_a);
-void				three_args(t_stack *stack_a);
-void				four_args(t_stack *stack_a, t_stack *stack_b);
-void				five_args(t_stack *stack_a, t_stack *stack_b);
-int					get_max_bit_length(t_stack *stack);
 void				few_args_sort(t_stack *stack_a, t_stack *stack_b,
 						int count);
+int					get_max_bit_length(t_stack *stack);
 void				big_args_sort(t_stack *stack_a, t_stack *stack_b);
-int					is_sorted(t_stack *stack);
 
 #endif

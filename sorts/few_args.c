@@ -6,19 +6,19 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 23:31:25 by nando             #+#    #+#             */
-/*   Updated: 2025/03/26 16:20:29 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/20 15:58:34 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	two_args(t_stack *stack_a)
+static void	two_args(t_stack *stack_a)
 {
 	if (stack_a->top->value > stack_a->top->next->value)
 		sa(stack_a);
 }
 
-void	three_args(t_stack *stack_a)
+static void	three_args(t_stack *stack_a)
 {
 	int	a;
 	int	b;
@@ -46,14 +46,14 @@ void	three_args(t_stack *stack_a)
 	}
 }
 
-void	four_args(t_stack *stack_a, t_stack *stack_b)
+static void	four_args(t_stack *stack_a, t_stack *stack_b)
 {
 	push_smallest_to_b(stack_a, stack_b);
 	three_args(stack_a);
 	pa(stack_a, stack_b);
 }
 
-void	five_args(t_stack *stack_a, t_stack *stack_b)
+static void	five_args(t_stack *stack_a, t_stack *stack_b)
 {
 	push_smallest_to_b(stack_a, stack_b);
 	push_smallest_to_b(stack_a, stack_b);

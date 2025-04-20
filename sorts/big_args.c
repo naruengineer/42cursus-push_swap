@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:06:32 by nando             #+#    #+#             */
-/*   Updated: 2025/04/18 18:06:22 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/20 16:11:30 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static void	radix_sort(t_stack *stack_a, t_stack *stack_b, int max_bit_len)
 		j = 0;
 		while (j < size_a)
 		{
-			current_rank = (stack_a->top->n_rank);
+			current_rank = stack_a->top->n_rank;
 			if (((current_rank >> i) & 1) == 0)
 				pb(stack_a, stack_b);
 			else
